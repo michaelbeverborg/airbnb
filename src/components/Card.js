@@ -4,21 +4,23 @@ const Card = () => {
   const cards = [
     {
       id: 1,
-      pic: "../../images/swim.png",
+      pic: "../../images/bike.png",
       rating: 5,
       revCount: 6,
       country: "USA",
-      title: "Swimming lessons by Gooba Choobalala",
+      title: "Lessons about cycling so you can cycle around",
       price: "€135",
+      openSpots: 0,
     },
     {
       id: 2,
-      pic: "../../images/wed.png",
+      pic: "../../images/bike.png",
       rating: 4,
       revCount: 26,
       country: "UK",
-      title: "Wedding stuff for weddings when people get married",
+      title: "Lessons about cycling so you can cycle around",
       price: "€225+",
+      openSpots: 1,
     },
     {
       id: 3,
@@ -28,6 +30,7 @@ const Card = () => {
       country: "AU",
       title: "Lessons about cycling so you can cycle around",
       price: "€77",
+      openSpots: 1,
     },
   ];
 
@@ -35,6 +38,8 @@ const Card = () => {
     <div className="card-list">
       {cards.map(card => (
         <div className="card">
+          {card.openSpots === 0 && <div className="card-badge">Sold Out</div>}
+
           <img src={card.pic} className="card-photo" alt="A person" />
           <div className="card-stats">
             <img src={star} className="card-star" alt="Star" />
