@@ -1,58 +1,27 @@
 import star from "../images/star.png";
 
-const Card = () => {
-  const cards = [
-    {
-      id: 1,
-      pic: "../../images/bike.png",
-      rating: 5,
-      revCount: 6,
-      country: "USA",
-      title: "Lessons about cycling so you can cycle around",
-      price: "€135",
-      openSpots: 0,
-    },
-    {
-      id: 2,
-      pic: "../../images/bike.png",
-      rating: 4,
-      revCount: 26,
-      country: "UK",
-      title: "Lessons about cycling so you can cycle around",
-      price: "€225+",
-      openSpots: 1,
-    },
-    {
-      id: 3,
-      pic: "../../images/bike.png",
-      rating: 3,
-      revCount: 16,
-      country: "AU",
-      title: "Lessons about cycling so you can cycle around",
-      price: "€77",
-      openSpots: 1,
-    },
-  ];
+const Card = props => {
+  let badgeText;
+  if (props.openSpots === 0) {
+    badgeText = "SOLD OUT";
+  } else if (props.location === "Online") {
+    badgeText = "ONLINE";
+  }
 
   return (
-    <div className="card-list">
-      {cards.map(card => (
-        <div className="card">
-          {card.openSpots === 0 && <div className="card-badge">Sold Out</div>}
-
-          <img src={card.pic} className="card-photo" alt="A person" />
-          <div className="card-stats">
-            <img src={star} className="card-star" alt="Star" />
-            <span>{card.rating} </span>
-            <span className="gray">&nbsp;({card.revCount}) - </span>
-            <span className="gray">{card.country}</span>
-          </div>
-          <p className="card.title">{card.title}</p>
-          <p>
-            <span className="bold">{card.price}</span> / person
-          </p>
-        </div>
-      ))}
+    <div className="card">
+      {badgeText && <div className="card-badge">{badgeText}</div>}
+      <img src={`../images/${props.coverImg}`} className="card-photo" />
+      <div className="card-stats">
+        <img src={star} className="card-star" />
+        <span>{props.stats.rating}</span>
+        <span className="gray">({props.stats.reviewCount}) • &nbsp;</span>
+        <span className="gray">{props.location}</span>
+      </div>
+      <p className="card-title">{props.title}</p>
+      <p className="card-price">
+        <span className="bold">From ${props.price}</span> / person
+      </p>
     </div>
   );
 };

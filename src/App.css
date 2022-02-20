@@ -38,7 +38,7 @@ nav img {
   margin-right: 50%;
 }
 
-.card-list {
+section {
   display: flex;
   flex: 0 0 auto;
   flex-direction: row;
