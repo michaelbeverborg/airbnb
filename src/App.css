@@ -3,6 +3,14 @@
   margin: auto;
 }
 
+.gray {
+  color: gray;
+}
+
+.bold {
+  font-weight: bold;
+}
+
 nav {
   box-shadow: 0 4px 4px -4px rgba(0, 0, 0, 0.4);
   height: 50px;
@@ -28,4 +36,35 @@ nav img {
 .hero p {
   margin-top: -16px;
   margin-right: 50%;
+}
+
+.card-list {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: row;
+}
+
+.card {
+  width: 175px;
+  font-size: 12px;
+  padding: 0 16px;
+  margin: auto;
+}
+
+.card-photo {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.card-stats {
+  display: flex;
+}
+
+.card-star {
+  height: 16px;
+}
+
+.card-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
